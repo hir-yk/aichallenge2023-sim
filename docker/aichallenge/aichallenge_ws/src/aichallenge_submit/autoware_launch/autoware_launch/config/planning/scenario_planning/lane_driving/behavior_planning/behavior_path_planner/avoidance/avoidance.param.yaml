@@ -2,9 +2,9 @@
 /**:
   ros__parameters:
     avoidance:
-      resample_interval_for_planning: 0.3               # [m]
-      resample_interval_for_output: 4.0                 # [m]
-      detection_area_right_expand_dist: 0.0             # [m]
+      resample_interval_for_planning: 0.2               # [m]
+      resample_interval_for_output: 3.0                 # [m]
+      detection_area_right_expand_dist: 1.0             # [m]
       detection_area_left_expand_dist: 1.0              # [m]
       drivable_area_right_bound_offset: 0.0             # [m]
       drivable_area_left_bound_offset: 0.0              # [m]
@@ -15,13 +15,13 @@
       enable_avoidance_over_same_direction: true
       enable_avoidance_over_opposite_direction: true
       enable_update_path_when_object_is_gone: false
-      enable_force_avoidance_for_stopped_vehicle: false
+      enable_force_avoidance_for_stopped_vehicle: true
       enable_safety_check: false
       enable_yield_maneuver: false
       disable_path_update: false
 
       # for debug
-      publish_debug_marker: false
+      publish_debug_marker: true
       print_debug_info: false
 
       # avoidance is performed for the object type with true
@@ -30,7 +30,7 @@
         truck: true
         bus: true
         trailer: true
-        unknown: false
+        unknown: true
         bicycle: false
         motorcycle: false
         pedestrian: false
@@ -40,9 +40,9 @@
         # filtering moving objects
         threshold_speed_object_is_stopped: 1.0          # [m/s]
         threshold_time_object_is_moving: 1.0            # [s]
-        threshold_time_force_avoidance_for_stopped_vehicle: 10.0 # [s]
+        threshold_time_force_avoidance_for_stopped_vehicle: 1.0 # [s]
         # detection range
-        object_check_force_avoidance_clearance: 30.0    # [m]
+        object_check_force_avoidance_clearance: 3.0    # [m]
         object_check_forward_distance: 150.0            # [m]
         object_check_backward_distance: 2.0             # [m]
         object_check_goal_distance: 20.0                # [m]
@@ -65,20 +65,20 @@
       avoidance:
         # avoidance lateral parameters
         lateral:
-          lateral_collision_margin: 1.0                 # [m]
-          lateral_collision_safety_buffer: 0.7          # [m]
+          lateral_collision_margin: 0.2                 # [m]
+          lateral_collision_safety_buffer: 0.1          # [m]
           lateral_passable_safety_buffer: 0.0           # [m]
-          road_shoulder_safety_margin: 0.3              # [m]
+          road_shoulder_safety_margin: 0.1              # [m]
           avoidance_execution_lateral_threshold: 0.499
           max_right_shift_length: 5.0
           max_left_shift_length: 5.0
         # avoidance distance parameters
         longitudinal:
-          prepare_time: 2.0                             # [s]
+          prepare_time: 0.0                             # [s]
           longitudinal_collision_safety_buffer: 0.0     # [m]
-          min_prepare_distance: 1.0                     # [m]
-          min_avoidance_distance: 10.0                  # [m]
-          min_nominal_avoidance_speed: 7.0              # [m/s]
+          min_prepare_distance: 0.2                     # [m]
+          min_avoidance_distance: 3.0                  # [m]
+          min_nominal_avoidance_speed: 1.0              # [m/s]
           min_sharp_avoidance_speed: 1.0                # [m/s]
 
       # For yield maneuver
@@ -87,8 +87,8 @@
 
       # For stop maneuver
       stop:
-        min_distance: 10.0                              # [m]
-        max_distance: 20.0                              # [m]
+        min_distance: 1.0                              # [m]
+        max_distance: 2.0                              # [m]
 
       constraints:
         # vehicle slows down under longitudinal constraints
@@ -103,11 +103,11 @@
         longitudinal:
           nominal_deceleration: -1.0                    # [m/ss]
           nominal_jerk: 0.5                             # [m/sss]
-          max_deceleration: -2.0                        # [m/ss]
-          max_jerk: 1.0
+          max_deceleration: -5.0                        # [m/ss]
+          max_jerk: 5.0
           # For prevention of large acceleration while avoidance
-          min_avoidance_speed_for_acc_prevention: 3.0   # [m/s]
-          max_avoidance_acceleration: 0.5               # [m/ss]
+          min_avoidance_speed_for_acc_prevention: 2.0   # [m/s]
+          max_avoidance_acceleration: 2.5               # [m/ss]
 
       target_velocity_matrix:
         col_size: 2

@@ -4,8 +4,8 @@
       enable_smoothing: true                                       # enable path smoothing by elastic band
       enable_skip_optimization: false                              # skip elastic band and model predictive trajectory
       enable_reset_prev_optimization: false                        # If true, optimization has no fix constraint to the previous result.
-      enable_outside_drivable_area_stop: true                      # stop if the ego's trajectory footprint is outside the drivable area
-      use_footprint_polygon_for_outside_drivable_area_check: false # If false, only the footprint's corner points are considered.
+      enable_outside_drivable_area_stop: false                      # stop if the ego's trajectory footprint is outside the drivable area
+      use_footprint_polygon_for_outside_drivable_area_check: true # If false, only the footprint's corner points are considered.
 
       debug:
         # flag to publish
@@ -79,9 +79,9 @@
 
       clearance:  # clearance(distance) between vehicle and roads/objects when generating trajectory
         # if collision_free_constraints.option.hard_constraint is true
-        hard_clearance_from_road: 0.0 # clearance from road boundary[m]
+        hard_clearance_from_road: 0.1 # clearance from road boundary[m]
         # if collision_free_constraints.option.soft_constraint is true
-        soft_clearance_from_road: 0.1 # clearance from road boundary[m]
+        soft_clearance_from_road: 0.2 # clearance from road boundary[m]
 
       # weight parameter for optimization
       weight:
@@ -89,11 +89,11 @@
         soft_collision_free_weight: 1000.0        # soft weight for lateral error around the middle point
 
         # tracking error
-        lat_error_weight: 1.0       # weight for lateral error
+        lat_error_weight: 0.0       # weight for lateral error
         yaw_error_weight: 0.0       # weight for yaw error
         yaw_error_rate_weight: 0.0  # weight for yaw error rate
-        steer_input_weight: 1.0     # weight for steering input
-        steer_rate_weight: 1.0      # weight for steering rate
+        steer_input_weight: .0     # weight for steering input
+        steer_rate_weight: 0.0      # weight for steering rate
 
         terminal_lat_error_weight: 100.0  # weight for lateral error at terminal point
         terminal_yaw_error_weight: 100.0  # weight for yaw error at terminal point
@@ -109,8 +109,8 @@
 
         weight:
           lat_error_weight: 0.0     # weight for lateral error
-          yaw_error_weight: 10.0    # weight for yaw error
-          steer_input_weight: 100.0 # weight for yaw error
+          yaw_error_weight: 0.0    # weight for yaw error
+          steer_input_weight: 0.0 # weight for yaw error
 
       # collision free constraint for optimization
       collision_free_constraints:
@@ -138,3 +138,4 @@
       validation: # if enable_optimization_validation is true
         max_lat_error: 5.0 # [m]
         max_yaw_error: 1.046 # [rad]
+
