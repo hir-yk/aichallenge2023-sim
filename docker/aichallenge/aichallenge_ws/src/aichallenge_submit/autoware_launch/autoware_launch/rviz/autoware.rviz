@@ -2236,7 +2236,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
+      Angle: -0.1900000125169754
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -2246,11 +2246,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 14.049280166625977
+      Scale: 19.73822784423828
       Target Frame: base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 0
-      Y: 0
+      X: -22.822832107543945
+      Y: -11.78738021850586
     Saved:
       - Class: rviz_default_plugins/ThirdPersonFollower
         Distance: 18
@@ -2309,5 +2309,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1857
-  X: 90
-  Y: 27
+  X: 637
+  Y: 214

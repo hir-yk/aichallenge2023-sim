@@ -4,8 +4,8 @@
     avoidance:
       resample_interval_for_planning: 0.2               # [m]
       resample_interval_for_output: 3.0                 # [m]
-      detection_area_right_expand_dist: 1.0             # [m]
-      detection_area_left_expand_dist: 1.0              # [m]
+      detection_area_right_expand_dist: 0.0             # [m]
+      detection_area_left_expand_dist: 0.0              # [m]
       drivable_area_right_bound_offset: 0.0             # [m]
       drivable_area_left_bound_offset: 0.0              # [m]
       object_envelope_buffer: 0.3                       # [m]
@@ -47,7 +47,7 @@
         object_check_backward_distance: 2.0             # [m]
         object_check_goal_distance: 20.0                # [m]
         # filtering parking objects
-        threshold_distance_object_is_on_center: 1.0     # [m]
+        threshold_distance_object_is_on_center: 0.0     # [m]
         object_check_shiftable_ratio: 0.6               # [-]
         object_check_min_road_shoulder_width: 0.5       # [m]
         # lost object compensation
@@ -66,7 +66,7 @@
         # avoidance lateral parameters
         lateral:
           lateral_collision_margin: 0.2                 # [m]
-          lateral_collision_safety_buffer: 0.1          # [m]
+          lateral_collision_safety_buffer: 0.2          # [m]
           lateral_passable_safety_buffer: 0.0           # [m]
           road_shoulder_safety_margin: 0.1              # [m]
           avoidance_execution_lateral_threshold: 0.499
@@ -97,7 +97,7 @@
         # lateral constraints
         lateral:
           nominal_lateral_jerk: 0.2                     # [m/s3]
-          max_lateral_jerk: 1.0                         # [m/s3]
+          max_lateral_jerk: 3.0                         # [m/s3]
 
         # longitudinal constraints
         longitudinal:
