@@ -3,3 +3,12 @@ _site
 
 # MacOS
 .DS_Store
+
+install/
+build/
+log/
+
+*.swp
+
+mapfile/
+AWSIM/
